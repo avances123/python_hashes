@@ -36,14 +36,14 @@ if __name__ == '__main__':
 
 
     nodos = []
-    cProfile.run("nodos = lectura(dict_s)",'stats_lectura_s')
-    r_stats = pstats.Stats('stats_lectura_s')
+    cProfile.run("nodos = lectura(dict_s)",'.stats_lectura_s')
+    r_stats = pstats.Stats('.stats_lectura_s')
     r_stats.print_stats()
     print("longitud resultado lista con los nodos:",len(nodos))
 
     nodos = []
-    cProfile.run("nodos = lectura(dict_s)",'stats_lectura_i')
-    r_stats = pstats.Stats('stats_lectura_i')
+    cProfile.run("nodos = lectura(dict_s)",'.stats_lectura_i')
+    r_stats = pstats.Stats('.stats_lectura_i')
     r_stats.print_stats()
     print("longitud resultado lista con los nodos:",len(nodos))    
     
