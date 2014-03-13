@@ -1,11 +1,17 @@
 
 
 # Colecciones de funciones hash
-def python(req):
+def python_tuple(req):
     return hash((req.id_modelo,req.version,req.variable,req.nivel,req.pasada))
 
 def python_id(req):
     return id(req)
+
+def python_string(req):
+    return hash(req.string)
+
+def python_integer(req):
+    return hash(req.integer)
 
 def scamm(req):
     return abs(req.variable * (req.id_modelo + 1) * (req.nivel + 1) + req.pasada) % 20000000

@@ -21,6 +21,7 @@ class Request():
         self.nivel     = int(nivel)
         self.pasada    = int(pasada)
         self.string    = str(id_modelo) + str(version) + str(variable) + str(nivel) + str(pasada)
+        self.integer    = str(id_modelo) + str(version) + str(variable) + str(nivel) + str(pasada)
 
     def __repr__(self):
         return self.string
