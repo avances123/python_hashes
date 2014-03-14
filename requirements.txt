@@ -3,8 +3,9 @@ distribute==0.6.24
 ipython==1.2.1
 numpy==1.8.0
 pandas==0.13.1
-pyhash==0.5.0
+plotly==0.5.11
 python-dateutil==2.2
 pytz==2013.9
+requests==2.2.1
 six==1.5.2
 wsgiref==0.1.2
