@@ -2,7 +2,7 @@
 
 # Colecciones de funciones hash
 def python_tuple(req):
-    return hash((req.id_modelo,req.variable,req.nivel,req.pasada))
+    return hash((req.id_modelo,req.variable,req.nivel,req.pasada,req.version))
 
 def scamm(req):
     # El siguiente valor se utiliza para almacenar la asociacion entre
@@ -13,6 +13,15 @@ def scamm(req):
     #HASH_WIS = 1572869
 
     return abs(req.variable * (req.id_modelo + 1) * (req.nivel + 1) + req.pasada) % 1572869
+
+
+def scamm_con_version_1(req):
+    #return abs(req.variable * (req.id_modelo + 1) * (req.nivel + 1) * (req.version + 1) + req.pasada) % 1572869
+    return abs(req.variable * (req.id_modelo + 1) * (req.nivel + 1) + (req.version * req.pasada)) % 1572869
+
+def scamm_con_version_2(req):
+    return abs(req.variable * (req.id_modelo + 1) * (req.nivel + 1) * (req.version + 1) + req.pasada) % 1572869
+
 
 
 def python_id(req):

@@ -4,17 +4,17 @@ class Request():
     def __init__(
                     self,
                     id_modelo=int(random.randint(1,1000)),
-                    #version=random.randint(1,1000),
+                    version=random.randint(1,1000),
                     variable=int(random.randint(1,1000)),
                     nivel=int(random.randint(1,1000)),
                     pasada=int(random.randint(1,1000))
                 ):
         self.id_modelo = int(id_modelo)
-        #self.version   = str(version)
+        self.version   = int(version)
         self.variable  = int(variable)
         self.nivel     = int(nivel)
         self.pasada    = int(pasada)
-        self.string    = str(self.id_modelo) + str(self.variable) + str(self.nivel) + str(self.pasada)
+        self.string    = str(self.id_modelo) + str(self.variable) + str(self.nivel) + str(self.pasada) + str(self.version)
         self.integer   = int(str(self))
 
     def __repr__(self):
@@ -31,6 +31,6 @@ class Request():
     def create_from_df(df,hash_function=hash):
         reqs = []
         for i,row in df.iterrows():
-            req = Request(row['id_modelo'],row['variable'],row['nivel'],row['pasada'])
+            req = Request(row['id_modelo'],row['version'],row['variable'],row['nivel'],row['pasada'])
             reqs.append(req)
         return dict.fromkeys(reqs)

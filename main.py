@@ -3,17 +3,20 @@ import sys
 import time
 import json
 import math
+import argparse
 from request import Request
 import hash_functions
 
 
 
 HASHFUNCTS = {
-    'python_id'       : hash_functions.python_id,
+    #'python_id'       : hash_functions.python_id,
     'python_tuple'    : hash_functions.python_tuple,
     'python_integer'  : hash_functions.python_integer,
-    'python_string'   : hash_functions.python_string,
+    #'python_string'   : hash_functions.python_string,
     'scamm'           : hash_functions.scamm,
+    'scamm_con_version_1': hash_functions.scamm_con_version_1,
+    'scamm_con_version_2': hash_functions.scamm_con_version_2,
     # 'fnv1_32'         : hash_functions.fnv1_32,
     # 'murmur3_32'      : hash_functions.murmur3_32,
     # 'h_lookup3'       : hash_functions.h_lookup3,
@@ -48,6 +51,15 @@ def run_functions_test(df,functs=HASHFUNCTS.keys()):
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Measure times of hash functions in python')
+    parser.add_argument('integers', metavar='N', type=int, nargs='+',
+                       help='an integer for the accumulator')
+    parser.add_argument('--sum', dest='accumulate', action='store_const',
+                       const=sum, default=max,
+                       help='sum the integers (default: find the max)')
+
+    args = parser.parse_args()
+    print args.accumulate(args.integers)
 
     results = {}
     for i in xrange(22):        
