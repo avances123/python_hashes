@@ -6,7 +6,7 @@ import time
 
 def dict_scan(d):
     for key in d.keys():
-        nodo = d[key]
+        d[key]
 
 
 
