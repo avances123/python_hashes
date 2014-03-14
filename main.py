@@ -9,17 +9,19 @@ import hash_functions
 
 
 HASHFUNCTS = {
-    'python_id'       : hash_functions.python_id,
-    'python_tuple'    : hash_functions.python_tuple,
-    'python_integer'  : hash_functions.python_integer,
-    'python_string'   : hash_functions.python_string,
-    'scamm'           : hash_functions.scamm,
-    'fnv1_32'         : hash_functions.fnv1_32,
-    'murmur3_32'      : hash_functions.murmur3_32,
-    #'h_lookup3'       : hash_functions.h_lookup3,
-    'super_fast_hash' : hash_functions.super_fast_hash,
-    'murmur2_x64_64a' : hash_functions.murmur2_x64_64a,
-    'fnv1a_64'        : hash_functions.fnv1a_64,
+    'python_id'           : hash_functions.python_id,
+    'python_tuple'        : hash_functions.python_tuple,
+    'python_pre_integer'  : hash_functions.python_pre_integer,
+    'python_post_integer' : hash_functions.python_post_integer,
+    'python_pre_string'   : hash_functions.python_pre_string,
+    'python_post_string'  : hash_functions.python_post_string,
+    'scamm'               : hash_functions.scamm,
+    # 'fnv1_32'             : hash_functions.fnv1_32,
+    # 'murmur3_32'          : hash_functions.murmur3_32,
+    # 'h_lookup3'           : hash_functions.h_lookup3,
+    # 'super_fast_hash'     : hash_functions.super_fast_hash,
+    # 'murmur2_x64_64a'     : hash_functions.murmur2_x64_64a,
+    # 'fnv1a_64'            : hash_functions.fnv1a_64,
 
 }
 
