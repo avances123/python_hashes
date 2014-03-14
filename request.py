@@ -1,12 +1,6 @@
 import random
 
 class Request():
-    """
-    Formato en bruto de la key y el valor (id_nodo)
-    id_modelo  version  variable  nivel      pasada  id_nodo
-            9      100        33    100  2014010100        1
-            9      100        33    100  2014010106        2
-    """
     def __init__(
                     self,
                     id_modelo=random.randint(1,1000),

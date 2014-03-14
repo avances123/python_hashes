@@ -45,7 +45,7 @@ def incrementa_nrows():
         raw_data = pd.io.parsers.read_csv(sys.argv[1],compression='gzip',sep="|",nrows=nrows)
         results[nrows] = estudio_hashes(raw_data)
         #print json.dumps(results[nrows],sort_keys=True,indent=4, separators=(',', ': '))
-    with open("hash_results.csv", "w") as outfile:
+    with open("results.json", "w") as outfile:
         json.dump(results, outfile, indent=4)
 
 
