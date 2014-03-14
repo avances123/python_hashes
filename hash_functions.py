@@ -18,29 +18,19 @@ def scamm(req):
 def python_id(req):
     return id(req)
 
-def python_pre_string(req):
+def python_string(req):
     """
     Hashing a string key
     """
     return hash(req.string)
 
-def python_pre_integer(req):
+def python_integer(req):
     """
     Hashing an integer key
     """
     return hash(req.integer)
 
-def python_post_string(req):
-    """
-    Hashing a generated string key from tuple of params
-    """
-    return hash(str(req.id_modelo) + str(req.variable) + str(req.nivel) + str(req.pasada))
 
-def python_post_integer(req):
-    """
-    Hashing a generated integer key from tuple of params
-    """
-    return hash(int(str(req)))
 
 
 
