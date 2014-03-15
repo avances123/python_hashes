@@ -1,7 +1,7 @@
 import pandas as pd
 import time
 import argparse
-from multiprocessing import Pool
+import multiprocessing 
 
 
 
@@ -22,7 +22,7 @@ parser.add_argument('--nrows',type=int)
 args = parser.parse_args()
 
 # Leo el csv y lo convierto a una lista de enteros
-pool = Pool(processes=4)
+pool = multiprocessing.Pool(processes=multiprocessing.cpu_count())
 print "Cargando %s ..." % args.data_file
 start_time = time.time()
 with open(args.data_file, 'rb') as f:
