@@ -11,14 +11,7 @@ def dict_scan(d):
         d[key]
 
 
-
-
-
-
-
-
-
-def read_file(line):
+def read_line(line):
 	#print line
 	return int(''.join(line.rstrip('\n').split('|'))[:-1])
 
@@ -28,13 +21,15 @@ parser.add_argument('data_file')
 parser.add_argument('--nrows',type=int)
 args = parser.parse_args()
 
-# Leo el csv en un DataFrame
-print "Cargando %s ..." % args.data_file
-ints = []
+# Leo el csv y lo convierto a una lista de enteros
 pool = Pool(processes=4)
+print "Cargando %s ..." % args.data_file
+start_time = time.time()
 with open(args.data_file, 'rb') as f:
 	fl = list(f)[1:args.nrows]
-	ints = pool.map(read_file,fl)
+	ints = pool.map(read_line,fl)
+stop_time = time.time()
+print "Cargado en %s en [%f] segundos" %(args.data_file,stop_time - start_time) 
 
 
 # creo un diccionario con los enteros
