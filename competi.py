@@ -1,6 +1,7 @@
 import pandas as pd
 import time
 import argparse
+from multiprocessing import Pool
 
 
 
@@ -10,6 +11,17 @@ def dict_scan(d):
         d[key]
 
 
+
+
+
+
+
+
+
+def read_file(line):
+	#print line
+	return int(''.join(line.rstrip('\n').split('|'))[:-1])
+
 # Pillo los argumentos
 parser = argparse.ArgumentParser()
 parser.add_argument('data_file')
@@ -18,21 +30,15 @@ args = parser.parse_args()
 
 # Leo el csv en un DataFrame
 print "Cargando %s ..." % args.data_file
-raw_data = pd.io.parsers.read_csv(args.data_file,compression='gzip',sep="|",nrows=args.nrows)
-
-# Creo otro dataframe con las columnas concatenadas
-data = pd.DataFrame()
-data['integers'] = (
-	raw_data['id_modelo'].apply(str) + 
-	raw_data['version'].apply(str) + 
-	raw_data['variable'].apply(str) + 
-	raw_data['nivel'].apply(str) + 
-	raw_data['pasada'].apply(str)
-).apply(int)
+ints = []
+pool = Pool(processes=4)
+with open(args.data_file, 'rb') as f:
+	fl = list(f)[1:args.nrows]
+	ints = pool.map(read_file,fl)
 
 
 # creo un diccionario con los enteros
-dict_i = dict.fromkeys(data.integers)
+dict_i = dict.fromkeys(ints)
 
 # Lo recorro y mido
 start_time = time.time()
